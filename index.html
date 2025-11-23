@@ -1,318 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>SKY FUND PROP — Premium Prop Trading</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Fund Prop</title>
 
-<!-- SEO + Social -->
-<meta name="description" content="SKY FUND PROP — Premium proprietary trading & funding. Fast evaluation, low spreads, high payouts." />
-<meta property="og:title" content="SKY FUND PROP" />
-<meta property="og:description" content="Premium proprietary trading & funding. Fast evaluation, low spreads, high payouts." />
-<meta property="og:image" content="logo.png" />
-<meta property="og:type" content="website" />
-<meta name="theme-color" content="#001f3f"/>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0a0f24;
+            color: #fff;
+        }
 
-<style>
-  /* ---------- Reset & basics ---------- */
-  :root{
-    --bg:#001628;
-    --deep:#001f3f;
-    --accent:#00b0ff;
-    --accent-2:#00c26e;
-    --card:#03223b;
-    --muted:#9fb7d3;
-    --glass: rgba(255,255,255,0.04);
-    --glass-strong: rgba(255,255,255,0.06);
-    --radius:14px;
-    --maxw:1200px;
-  }
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0; background:linear-gradient(180deg,var(--bg), #001028 1200px);
-    color:#fff; font-family:Inter, system-ui, Arial, sans-serif; -webkit-font-smoothing:antialiased;
-  }
-  a{color:var(--accent); text-decoration:none}
-  .container{max-width:var(--maxw); margin:0 auto; padding:0 20px;}
+        header {
+            background: #0e1835;
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0px 2px 10px #0005;
+        }
 
-  /* ---------- NAV ---------- */
-  nav{
-    position:fixed; top:0; left:0; right:0; z-index:999;
-    display:flex; align-items:center; justify-content:space-between;
-    padding:14px 20px; backdrop-filter:blur(8px);
-    background:linear-gradient(180deg, rgba(2,8,20,0.55), rgba(2,8,20,0.25));
-    border-bottom:1px solid rgba(255,255,255,0.03);
-  }
-  nav .left{display:flex;align-items:center;gap:14px}
-  nav img{height:56px; width:auto; display:block}
-  nav .brand{font-weight:700; letter-spacing:1px; font-size:18px; color:#dbeeff}
-  nav ul{display:flex; gap:22px; list-style:none; margin:0; padding:0; align-items:center}
-  nav li a{font-weight:600; color:rgba(255,255,255,0.85); transition:0.2s}
-  nav li a:hover{color:var(--accent)}
+        header img {
+            height: 55px;
+        }
 
-  /* ---------- HERO ---------- */
-  .hero{
-    min-height:88vh; display:flex; align-items:center; justify-content:center;
-    padding:120px 20px 90px; text-align:center;
-    background-image: radial-gradient(circle at 10% 10%, rgba(0,176,255,0.06), transparent 8%),
-                      radial-gradient(circle at 90% 90%, rgba(0,194,110,0.03), transparent 8%);
-  }
-  .hero .box{max-width:980px; margin:0 auto; padding:30px; border-radius:18px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); box-shadow: 0 10px 40px rgba(0,0,0,0.6);}
-  .logo-inline{display:flex; align-items:center; gap:14px; justify-content:center}
-  .hero h1{font-size:48px; margin:10px 0 6px; color:#eaf6ff}
-  .hero p{color:var(--muted); font-size:18px; margin:0 auto; max-width:760px; line-height:1.6}
-  .btn-row{margin-top:22px; display:flex; gap:12px; justify-content:center; flex-wrap:wrap}
-  .btn {padding:12px 22px; border-radius:10px; font-weight:700; border:0; cursor:pointer}
-  .btn-primary{background:linear-gradient(90deg,var(--accent), #0088cc); color:#00122a; box-shadow:0 8px 28px rgba(0,176,255,0.12)}
-  .btn-ghost{background:transparent; border:1px solid rgba(255,255,255,0.06); color: #dbeeff}
+        header h2 {
+            margin: 0;
+            color: #4da6ff;
+            font-weight: 700;
+        }
 
-  /* ---------- Stats ---------- */
-  .stats{display:flex; gap:18px; margin-top:28px; justify-content:center; flex-wrap:wrap}
-  .stat{background:var(--glass); padding:14px 18px; border-radius:12px; min-width:140px; text-align:center}
-  .stat h3{font-size:20px; margin-bottom:6px; color:#fff}
-  .stat p{color:var(--muted); margin:0; font-size:13px}
+        section {
+            padding: 40px 20px;
+        }
 
-  /* ---------- cards (features/pricing) ---------- */
-  .section{padding:60px 0}
-  h2.section-title{font-size:30px; text-align:center; margin-bottom:18px}
-  .cards{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:26px}
-  .card{
-    background:linear-gradient(180deg,var(--card), rgba(10,26,40,0.85));
-    padding:22px; border-radius:12px; border:1px solid rgba(255,255,255,0.03);
-    transition:transform .25s ease, box-shadow .25s ease;
-  }
-  .card:hover{transform:translateY(-10px); box-shadow:0 18px 40px rgba(0,0,0,0.6)}
-  .card h3{margin-bottom:10px}
-  .card p{color:var(--muted); font-size:14px; line-height:1.5}
+        h2 {
+            text-align: center;
+            color: #4da6ff;
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
 
-  /* ---------- testimonials carousel (simple) ---------- */
-  .carousel{display:flex; gap:12px; overflow:hidden; padding:8px; margin-top:18px}
-  .testimonial{min-width:260px; background:var(--glass-strong); padding:18px; border-radius:10px}
-  .testimonial p{color:var(--muted); font-size:14px}
+        .account-container {
+            max-width: 900px;
+            margin: auto;
+        }
 
-  /* ---------- pricing ---------- */
-  .pricing-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px}
-  .price{background:linear-gradient(180deg,#022a46,#01304a); padding:20px; border-radius:12px; text-align:center}
-  .price h3{margin:10px 0}
-  .price b{display:block; font-size:20px; margin-top:12px; color:var(--accent)}
+        .plan-box {
+            background: #121b3b;
+            padding: 22px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border: 1px solid #233269;
+        }
 
-  /* ---------- contact ---------- */
-  .contact-card{max-width:850px; margin:18px auto; padding:26px; background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border-radius:12px; display:grid; grid-template-columns:1fr 300px; gap:18px}
-  .contact-card label{display:block; font-size:13px; margin-bottom:6px; color:var(--muted)}
-  .field{width:100%; padding:12px; border-radius:8px; border:1px solid rgba(255,255,255,0.04); background:transparent; color:#fff}
+        .plan-box h3 {
+            margin: 0 0 10px 0;
+            color: #4da6ff;
+        }
 
-  /* ---------- footer ---------- */
-  footer{padding:30px; text-align:center; color:rgba(255,255,255,0.7); margin-top:30px; border-top:1px solid rgba(255,255,255,0.02)}
+        .price {
+            font-size: 26px;
+            color: #4da6ff;
+            font-weight: bold;
+        }
 
-  /* ---------- responsive ---------- */
-  @media (max-width:900px){
-    .hero h1{font-size:34px}
-    nav ul{display:none}
-    .contact-card{grid-template-columns:1fr}
-  }
+        .buy-btn {
+            margin-top: 12px;
+            padding: 12px 18px;
+            background: #4da6ff;
+            border: none;
+            border-radius: 8px;
+            font-size: 17px;
+            cursor: pointer;
+            width: 100%;
+        }
 
-  /* ---------- small animations ---------- */
-  .fade-up{opacity:0; transform:translateY(18px); animation:up .7s forwards}
-  @keyframes up{to{opacity:1; transform:none}}
-</style>
+        .buy-btn:hover {
+            background: #357ad8;
+        }
+
+        footer {
+            background: #0e1835;
+            padding: 20px;
+            text-align: center;
+            color: #6d88c9;
+            margin-top: 40px;
+        }
+
+        .wallet-box {
+            background: #111a38;
+            padding: 20px;
+            margin-top: 25px;
+            border-radius: 10px;
+            border: 1px solid #24417a;
+        }
+
+        .wallet-text {
+            word-wrap: break-word;
+            color: #4da6ff;
+            font-size: 18px;
+        }
+
+        .qr-img {
+            width: 170px;
+            margin-top: 15px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
+
 <body>
 
-<nav class="container">
-  <div class="left">
-    <img src="logo.png" alt="SKY FUND PROP logo">
-    <div class="brand">SKY FUND PROP</div>
-  </div>
-  <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#features">Features</a></li>
-    <li><a href="#services">Services</a></li>
-    <li><a href="#pricing">Pricing</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
+<header>
+    <img src="uploads/logo.png" alt="logo">
+    <h2>Sky Fund Prop</h2>
+</header>
 
-<!-- HERO -->
-<section class="hero" id="hero">
-  <div class="box container fade-up">
-    <div class="logo-inline">
-      <img src="logo.png" alt="logo" style="height:64px;border-radius:12px">
-      <div style="text-align:left">
-        <div style="font-size:13px;color:var(--muted);font-weight:600">Premium Prop Trading</div>
-        <div style="font-size:20px;font-weight:800;letter-spacing:0.6px">SKY FUND PROP</div>
-      </div>
+<section>
+    <h2>1-Step Funded Accounts</h2>
+    <div class="account-container">
+
+        <div class="plan-box">
+            <h3>$5,000 Account</h3>
+            <p class="price">$8</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="plan-box">
+            <h3>$10,000 Account</h3>
+            <p class="price">$16</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
     </div>
-
-    <h1 style="margin-top:18px">Trade with confidence. Get funded faster.</h1>
-    <p>World-class funding programs · rapid evaluation · advanced risk toolkit · dedicated support</p>
-
-    <div class="btn-row">
-      <button class="btn btn-primary" onclick="openModal()">Get Funded</button>
-      <a class="btn btn-ghost" href="#pricing">See Plans</a>
-    </div>
-
-    <div class="stats" style="margin-top:26px">
-      <div class="stat"><h3 id="count-1">0</h3><p>Accounts Funded</p></div>
-      <div class="stat"><h3 id="count-2">0</h3><p>Avg Payout %</p></div>
-      <div class="stat"><h3 id="count-3">0</h3><p>Trading Instruments</p></div>
-    </div>
-  </div>
 </section>
 
-<!-- FEATURES -->
-<section class="section" id="features">
-  <div class="container">
-    <h2 class="section-title">Core Features</h2>
-    <div class="cards">
-      <div class="card fade-up"><h3>Lightning-fast Evaluation</h3><p>Two-step evaluation with transparent rules and fast results.</p></div>
-      <div class="card fade-up"><h3>High Payouts</h3><p>Keep up to 90% of profits on funded accounts.</p></div>
-      <div class="card fade-up"><h3>Low Spreads</h3><p>Trade with ultra-competitive spreads and low slippage.</p></div>
-      <div class="card fade-up"><h3>Risk Toolkit</h3><p>Auto risk controls, session tracking, and detailed analytics.</p></div>
+<section>
+    <h2>2-Step Funded Accounts</h2>
+    <div class="account-container">
+
+        <div class="plan-box">
+            <h3>$5,000 Account</h3>
+            <p class="price">$6</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="plan-box">
+            <h3>$10,000 Account</h3>
+            <p class="price">$12</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
     </div>
-  </div>
 </section>
 
-<!-- SERVICES -->
-<section class="section" id="services" style="padding-top:30px">
-  <div class="container">
-    <h2 class="section-title">Our Programs</h2>
-    <div class="cards">
-      <div class="card"><h3>Forex Funding</h3><p>Multiple account sizes, instant verification and focused support.</p></div>
-      <div class="card"><h3>Crypto Funding</h3><p>Exchange-grade execution and professional custody options.</p></div>
-      <div class="card"><h3>Indices & Metals</h3><p>Trade with optimized margin and lower overnight costs.</p></div>
-      <div class="card"><h3>Managed Accounts</h3><p>Institutional-grade management for high-performance traders.</p></div>
+<section>
+    <h2>Instant Funded Accounts</h2>
+    <div class="account-container">
+
+        <div class="plan-box">
+            <h3>$5,000 Account</h3>
+            <p class="price">$12</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
+        <div class="plan-box">
+            <h3>$10,000 Account</h3>
+            <p class="price">$24</p>
+            <button class="buy-btn">Buy Now</button>
+        </div>
+
     </div>
-  </div>
 </section>
 
-<!-- PRICING -->
-<section class="section" id="pricing" style="padding-top:30px">
-  <div class="container">
-    <h2 class="section-title">Pricing Plans</h2>
-    <div class="pricing-grid" style="margin-top:22px">
-      <div class="price card">
-        <h3>Starter</h3>
-        <p>₹0 entry / community plan</p>
-        <b>Free</b>
-      </div>
-      <div class="price card">
-        <h3>Challenge</h3>
-        <p>Evaluation challenge — pass & get funded</p>
-        <b>₹999</b>
-      </div>
-      <div class="price card">
-        <h3>Professional</h3>
-        <p>Full funding + premium support</p>
-        <b>₹4999</b>
-      </div>
-    </div>
-  </div>
-</section>
+<section>
+    <h2>Crypto Payments</h2>
 
-<!-- TESTIMONIALS -->
-<section class="section" style="padding-top:10px">
-  <div class="container">
-    <h2 class="section-title">What Traders Say</h2>
-    <div class="carousel" id="carousel">
-      <div class="testimonial card"><p>"I scaled to funded accounts in 7 days. Payouts are fast and support is real." — Raj</p></div>
-      <div class="testimonial card"><p>"Stable execution and low spreads helped my strategy perform." — Priya</p></div>
-      <div class="testimonial card"><p>"Their risk tools saved a losing session — amazing team." — Kunal</p></div>
+    <div class="wallet-box">
+        <h3 style="color:#4da6ff;">USDT (TRC20)</h3>
+        <p class="wallet-text">TW12tM2AvJt3duQUgV6AezQS47ToKixnDv</p>
+        <img src="uploads/usdt_trc20_qr.png" class="qr-img">
     </div>
-  </div>
-</section>
 
-<!-- CONTACT / CTA -->
-<section id="contact" class="section" style="padding-top:10px">
-  <div class="container">
-    <h2 class="section-title">Ready to Join?</h2>
-    <div class="contact-card">
-      <div>
-        <label>Name</label><input class="field" id="name" placeholder="Your full name" />
-        <label style="margin-top:10px">Email</label><input class="field" id="email" placeholder="you@example.com" />
-        <label style="margin-top:10px">Message</label><textarea id="message" class="field" rows="4" placeholder="Tell us about your trading experience"></textarea>
-      </div>
-      <div style="display:flex; flex-direction:column; gap:12px; align-items:flex-start; justify-content:center">
-        <div style="font-size:13px;color:var(--muted)">Or contact directly:</div>
-        <div style="font-weight:700">Whatsapp: +91 98765 43210</div>
-        <div style="font-weight:700">Email: support@skyfundprop.com</div>
-        <button style="margin-top:10px;padding:12px 22px;border-radius:10px;border:0;background:var(--accent-2);font-weight:800" onclick="submitForm()">Send Request</button>
-      </div>
+    <div class="wallet-box">
+        <h3 style="color:#4da6ff;">ETH (ERC20)</h3>
+        <p class="wallet-text">0xe670cd917da36c63f58058958607f1d8b8849ae1</p>
+        <img src="uploads/eth_erc20_qr.png" class="qr-img">
     </div>
-  </div>
+
 </section>
 
 <footer>
-  © 2025 SKY FUND PROP — All Rights Reserved. · <a href="#">Privacy</a> · <a href="#">Terms</a>
+    © 2025 Sky Fund Prop | All Rights Reserved
 </footer>
 
-<!-- Modal (Get Funded) -->
-<div id="modal" style="position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.6);z-index:1200">
-  <div style="width:90%;max-width:720px;background:#021827;padding:22px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)">
-    <h3 style="margin:0 0 8px">Get Funded — Quick Application</h3>
-    <p style="color:var(--muted);margin:0 0 12px">Fill quick details and we'll contact you within 24 hours.</p>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-      <input id="m_name" class="field" placeholder="Name">
-      <input id="m_email" class="field" placeholder="Email">
-      <input id="m_phone" class="field" placeholder="Phone / WhatsApp">
-      <input id="m_strategy" class="field" placeholder="Strategy (e.g. Swing / Scalping)">
-    </div>
-    <div style="margin-top:12px;display:flex;gap:8px;justify-content:flex-end">
-      <button style="padding:10px 18px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:#fff" onclick="closeModal()">Close</button>
-      <button style="padding:10px 18px;border-radius:8px;background:var(--accent);border:0;color:#00122a;font-weight:800" onclick="submitModal()">Submit</button>
-    </div>
-  </div>
-</div>
-
-<script>
-  // small helpers
-  function openModal(){ document.getElementById('modal').style.display='flex' }
-  function closeModal(){ document.getElementById('modal').style.display='none' }
-
-  // carousel simple auto-scroll
-  const carousel = document.getElementById('carousel')
-  if(carousel){
-    let pos = 0
-    setInterval(()=>{ pos += 272; if(pos > carousel.scrollWidth - carousel.clientWidth) pos = 0; carousel.scrollTo({left:pos, behavior:'smooth'}) }, 3500)
-  }
-
-  // animated counters
-  function animateCount(id, to, duration=1400){
-    const el = document.getElementById(id)
-    if(!el) return
-    let start=0, startTime=null
-    function step(ts){ if(!startTime) startTime=ts; const progress=Math.min((ts-startTime)/duration,1); el.innerText = Math.floor(progress*to); if(progress<1) requestAnimationFrame(step) }
-    requestAnimationFrame(step)
-  }
-  setTimeout(()=>{ animateCount('count-1', 124); animateCount('count-2', 90); animateCount('count-3', 12) }, 800)
-
-  // form submit (mailto fallback)
-  function submitForm(){
-    const name=document.getElementById('name').value||'';
-    const email=document.getElementById('email').value||'';
-    const message=document.getElementById('message').value||'';
-    const subject = encodeURIComponent('SKY FUND PROP – New Request from '+name)
-    const body = encodeURIComponent('Name: '+name+'%0AEmail: '+email+'%0A%0AMessage:%0A'+message)
-    window.location.href = 'mailto:support@skyfundprop.com?subject='+subject+'&body='+body
-  }
-  function submitModal(){
-    const name=document.getElementById('m_name').value||'';
-    const email=document.getElementById('m_email').value||'';
-    const phone=document.getElementById('m_phone').value||'';
-    const strategy=document.getElementById('m_strategy').value||'';
-    const subject = encodeURIComponent('Get Funded – '+name)
-    const body = encodeURIComponent('Name: '+name+'%0AEmail: '+email+'%0APhone: '+phone+'%0AStrategy: '+strategy)
-    window.location.href = 'mailto:support@skyfundprop.com?subject='+subject+'&body='+body
-  }
-
-  // smooth in-page links
-  document.querySelectorAll('a[href^="#"]').forEach(a=>{
-    a.addEventListener('click', e=>{
-      e.preventDefault()
-      const t = document.querySelector(a.getAttribute('href'))
-      if(t) t.scrollIntoView({behavior:'smooth', block:'start'})
-    })
-  })
-</script>
 </body>
 </html>
